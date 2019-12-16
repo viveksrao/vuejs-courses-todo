@@ -1,4 +1,6 @@
-# courses-todo
+# Courses TODO
+
+[Get Started With Vue.js](https://code.tutsplus.com/courses/get-started-with-vue)
 
 ## Project setup
 ```

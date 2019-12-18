@@ -1,5 +1,5 @@
 <template>
-  <div class="card mt-3">
+  <div class="card mt-3" :class="{'alert-success': course.completed}">
     <div class="card-body">
       <h5 class="card-title">{{ course.title }}</h5>
       <h6 class="card-subtitle" :class="overDueCSS" v-if="course.dueDate && !course.completed">
@@ -7,7 +7,10 @@
         {{ formattedDate }}
       </h6>
       <div class="course-controls">
-        <button class="btn btn-sm btn-outline-success" @click.prevent="markAsCompleted">Complete</button>
+        <button 
+          v-if="!course.completed"
+          class="btn btn-sm btn-outline-success" 
+          @click.prevent="markAsCompleted">Complete</button>
       </div>
     </div>
   </div>
@@ -37,6 +40,7 @@
     methods: {
       markAsCompleted() {
         this.course.completed = true;
+        this.$courses.markAsCompleted(this.course.id);
         this.$emit('course-completed');
       }
     },

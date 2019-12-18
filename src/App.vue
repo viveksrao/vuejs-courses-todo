@@ -1,33 +1,32 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-dark bg-dark">
+    <div id="nav">
+      <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+        <div class="container">
+          <a href="#" class="navbar-brand">TOUR OF COURSES</a>
+          <div class="navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <router-link class="nav-link" to="/">Home</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/add">Add New Course</router-link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
       <div class="container">
-        <a href="#" class="navbar-brand">COURSES HISTORY</a>
+        <router-view/>
       </div>
-    </nav>
-    <div class="container">
-      <CourseList :courses="courses"/>
     </div>
   </div>
 </template>
 
 <script>
-import CourseList from './components/CourseList.vue'
 export default {
   name: 'app',
   components: {
-    CourseList
-  },
-  data() {
-    return {
-      courses: [
-        { title: 'Understanding OAuth with Node.js', dueDate: new Date(2019, 0, 15), completed:false },
-        { title: 'TypeScript: The Big Picture', dueDate: new Date(2019, 0, 15), completed:true },
-        { title: 'Creating Object-oriented TypeScript Code', dueDate: new Date(2020, 0, 15), completed:false },
-        { title: 'JavaScript Promises and Async Programming', dueDate: new Date(2020, 3, 15), completed:false },
-        { title: 'Creating and Using TypeScript Decorators', completed:false }
-      ]
-    }
   },
 }
 </script>
